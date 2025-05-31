@@ -1,0 +1,34 @@
+@model List<Usuario>
+
+<h2 class="text-center mb-4">Lista de Usuários</h2>
+
+<div id="message-box" class="alert" style="display:none;"></div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Cidade</th>
+        <th>Relatórios Feitos</th>
+        <th class="text-center">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var usuario in Model)
+    {
+        <tr>
+            <td>@usuario.Nome</td>
+            <td>@usuario.Email</td>
+            <td>@usuario.Cidade.Nome</td>
+            <td>@usuario.Relatorios.Count</td>
+            <td class="d-flex justify-content-around">
+                <a href="@Url.Action("Edit", "Usuario", new { id = usuario.Id })" class="btn btn-secondary">Editar</a>
+                <a href="@Url.Action("Delete", "Usuario", new { id = usuario.Id })" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="btn btn-primary text-center" href="@Url.Action("Create", "Usuario")">Criar novo Usuário</a>
