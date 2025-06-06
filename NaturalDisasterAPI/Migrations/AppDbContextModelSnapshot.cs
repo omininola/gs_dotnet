@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NaturalDisasterAPI.Data;
-using Oracle.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -18,24 +17,20 @@ namespace NaturalDisasterAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.5")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("NaturalDisasterAPI.Models.Cidade", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                        .HasColumnType("bigint");
 
                     b.Property<long>("EstadoId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -48,24 +43,17 @@ namespace NaturalDisasterAPI.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<long>("CidadeId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Modelo")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CidadeId");
 
                     b.ToTable("Drones");
                 });
@@ -74,16 +62,14 @@ namespace NaturalDisasterAPI.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("PaisId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -96,13 +82,11 @@ namespace NaturalDisasterAPI.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -113,24 +97,27 @@ namespace NaturalDisasterAPI.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                    b.Property<long>("CidadeId")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("Data")
-                        .HasColumnType("TIMESTAMP(7)");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<long?>("DroneId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("UsuarioId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CidadeId");
 
                     b.HasIndex("DroneId");
 
@@ -143,24 +130,21 @@ namespace NaturalDisasterAPI.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("DroneId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Tipo")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -173,28 +157,21 @@ namespace NaturalDisasterAPI.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(19)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<long>("CidadeId")
-                        .HasColumnType("NUMBER(19)");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CidadeId");
 
                     b.ToTable("Usuarios");
                 });
@@ -210,17 +187,6 @@ namespace NaturalDisasterAPI.Migrations
                     b.Navigation("Estado");
                 });
 
-            modelBuilder.Entity("NaturalDisasterAPI.Models.Drone", b =>
-                {
-                    b.HasOne("NaturalDisasterAPI.Models.Cidade", "Cidade")
-                        .WithMany("Drones")
-                        .HasForeignKey("CidadeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cidade");
-                });
-
             modelBuilder.Entity("NaturalDisasterAPI.Models.Estado", b =>
                 {
                     b.HasOne("NaturalDisasterAPI.Models.Pais", "Pais")
@@ -234,6 +200,12 @@ namespace NaturalDisasterAPI.Migrations
 
             modelBuilder.Entity("NaturalDisasterAPI.Models.Relatorio", b =>
                 {
+                    b.HasOne("NaturalDisasterAPI.Models.Cidade", "Cidade")
+                        .WithMany("Relatorios")
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("NaturalDisasterAPI.Models.Drone", "Drone")
                         .WithMany("Relatorios")
                         .HasForeignKey("DroneId");
@@ -241,6 +213,8 @@ namespace NaturalDisasterAPI.Migrations
                     b.HasOne("NaturalDisasterAPI.Models.Usuario", "Usuario")
                         .WithMany("Relatorios")
                         .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Cidade");
 
                     b.Navigation("Drone");
 
@@ -258,22 +232,9 @@ namespace NaturalDisasterAPI.Migrations
                     b.Navigation("Drone");
                 });
 
-            modelBuilder.Entity("NaturalDisasterAPI.Models.Usuario", b =>
-                {
-                    b.HasOne("NaturalDisasterAPI.Models.Cidade", "Cidade")
-                        .WithMany("Usuarios")
-                        .HasForeignKey("CidadeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cidade");
-                });
-
             modelBuilder.Entity("NaturalDisasterAPI.Models.Cidade", b =>
                 {
-                    b.Navigation("Drones");
-
-                    b.Navigation("Usuarios");
+                    b.Navigation("Relatorios");
                 });
 
             modelBuilder.Entity("NaturalDisasterAPI.Models.Drone", b =>

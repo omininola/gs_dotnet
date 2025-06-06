@@ -1,9 +1,5 @@
 @model NaturalDisasterMVC.DTO.UsuarioRequest
 
-@{
-    var cidades = ViewBag.Cidades as List<Cidade>;
-}
-
 <h2 class="text-center mb-4">Criar novo Usuário</h2>
 
 <form asp-action="Create" method="post">
@@ -23,18 +19,6 @@
         <label>Senha</label>
         <input asp-for="Senha" type="password" class="form-control" />
         <span asp-validation-for="Senha" class="text-danger"></span>
-    </div>
-    
-    <div class="form-group mb-4">
-        <label>Cidade</label>
-        <select asp-for="CidadeId" class="form-control">
-            <option value="">Selecione uma cidade</option>
-            @foreach (var cidade in cidades)
-            {
-                <option value="@cidade.Id">@cidade.Nome</option>
-            }
-        </select>
-        <span asp-validation-for="CidadeId" class="text-danger"></span>
     </div>
     
     <button type="submit" class="btn btn-primary">Criar</button>

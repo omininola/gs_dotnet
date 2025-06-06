@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaturalDisasterAPI.Data;
 using NaturalDisasterAPI.DTO;
+using NaturalDisasterAPI.DTO.RelatorioDTO;
+using NaturalDisasterAPI.DTO.UsuarioDTO;
 using NaturalDisasterAPI.Models;
 
 namespace NaturalDisasterAPI.Controllers
@@ -20,18 +22,11 @@ namespace NaturalDisasterAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<UsuarioResponse>> PostUsuario([FromBody] UsuarioRequest usuarioRequest)
         {
-            var cidade = await _context.Cidades.FindAsync(usuarioRequest.CidadeId);
-            if (cidade == null)
-            {
-                return BadRequest("Cidade não encontrada");
-            }
-            
             var usuario = new Usuario
             {
                 Nome = usuarioRequest.Nome,
                 Email = usuarioRequest.Email,
                 Senha = usuarioRequest.Senha,
-                Cidade = cidade
             };
             
             _context.Usuarios.Add(usuario);
@@ -44,17 +39,16 @@ namespace NaturalDisasterAPI.Controllers
         public async Task<ActionResult<IEnumerable<UsuarioResponse>>> GetUsuarios()
         {
             var usuarios = await _context.Usuarios
-                .Include(u => u.Cidade)
                 .Include(u => u.Relatorios)
                 .Select(u => new UsuarioResponse
                 {
                     Id = u.Id,
                     Nome = u.Nome,
                     Email = u.Email,
-                    CidadeNome = u.Cidade.Nome,
                     Relatorios = u.Relatorios.Select(r => new RelatorioResponse
                     {
                         Id = r.Id,
+                        CidadeNome = r.Cidade.Nome,
                         Descricao = r.Descricao,
                         Data = r.Data,
                     }).ToList()
@@ -68,7 +62,6 @@ namespace NaturalDisasterAPI.Controllers
         public async Task<ActionResult<UsuarioResponse>> GetUsuario(long id)
         {
             var usuario = await _context.Usuarios
-                .Include(u => u.Cidade)
                 .Include(u => u.Relatorios)
                 .Where(u => u.Id == id)
                 .Select(u => new UsuarioResponse
@@ -76,10 +69,10 @@ namespace NaturalDisasterAPI.Controllers
                     Id = u.Id,
                     Nome = u.Nome,
                     Email = u.Email,
-                    CidadeNome = u.Cidade.Nome,
                     Relatorios = u.Relatorios.Select(r => new RelatorioResponse
                     {
                         Id = r.Id,
+                        CidadeNome = r.Cidade.Nome,
                         Descricao = r.Descricao,
                         Data = r.Data,
                     }).ToList()
@@ -103,16 +96,9 @@ namespace NaturalDisasterAPI.Controllers
                 return NotFound("Usuário não encontrado");
             }
 
-            var cidade = await _context.Cidades.FindAsync(usuarioRequest.CidadeId);
-            if (cidade == null)
-            {
-                return BadRequest("Cidade não encontrada");
-            }
-
             usuario.Nome = usuarioRequest.Nome;
             usuario.Email = usuarioRequest.Email;
             usuario.Senha = usuarioRequest.Senha;
-            usuario.Cidade = cidade;
 
             _context.Entry(usuario).State = EntityState.Modified;
             await _context.SaveChangesAsync();
@@ -122,7 +108,6 @@ namespace NaturalDisasterAPI.Controllers
                 Id = usuario.Id,
                 Nome = usuario.Nome,
                 Email = usuario.Email,
-                CidadeNome = usuario.Cidade.Nome
             };
             
             return Ok(usuarioResponse);

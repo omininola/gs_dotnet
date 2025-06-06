@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaturalDisasterAPI.Data;
-using NaturalDisasterAPI.DTO;
+using NaturalDisasterAPI.DTO.RelatorioDTO;
 using NaturalDisasterAPI.Models;
 
 namespace NaturalDisasterAPI.Controllers
@@ -18,46 +18,62 @@ namespace NaturalDisasterAPI.Controllers
         }
 
         [HttpPost("usuario")]
-        public async Task<ActionResult<RelatorioResponse>> PostRelatorio([FromBody] RelatorioUsuarioRequest relatorioUsuarioRequest)
+        public async Task<ActionResult<RelatorioResponse>> PostRelatorioUsuario([FromBody] RelatorioUsuarioRequest relatorioUsuarioRequest)
         {
-            var usuario = await _context.Usuarios.FindAsync(relatorioUsuarioRequest.UsuarioId);
-            if (usuario == null)
-            {
-                return BadRequest("Usuário não encontrado");
-            }
-
-            var relatorio = new Relatorio
-            {
-                Usuario = usuario,
-                Descricao = relatorioUsuarioRequest.Descricao,
-                Data = DateTime.Now
-            };
-            
-            _context.Relatorios.Add(relatorio);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetRelatorio), new { Id = relatorio.Id }, relatorio);
+            return await PostRelatorio(relatorioUsuarioRequest);
         }
         
         [HttpPost("drone")]
-        public async Task<ActionResult<RelatorioResponse>> PostRelatorio([FromBody] RelatorioDroneRequest relatorioDroneRequest)
+        public async Task<ActionResult<RelatorioResponse>> PostRelatorioDrone([FromBody] RelatorioDroneRequest relatorioDroneRequest)
         {
-            var drone = await _context.Drones.FindAsync(relatorioDroneRequest.DroneId);
-            if (drone == null)
+            return await PostRelatorio(relatorioDroneRequest);
+        }
+        
+        private async Task<ActionResult<RelatorioResponse>> PostRelatorio([FromBody] RelatorioRequest relatorioRequest)
+        {
+            var cidade = await  _context.Cidades.FindAsync(relatorioRequest.CidadeId);
+            if (cidade == null)
             {
-                return BadRequest("Drone não encontrado");
+                return NotFound("Cidade não encontrada");
             }
-
+            
             var relatorio = new Relatorio
             {
-                Drone = drone,
-                Descricao = relatorioDroneRequest.Descricao,
+                Cidade = cidade,
+                Descricao = relatorioRequest.Descricao,
                 Data = DateTime.Now
             };
+
+            if (relatorioRequest.GetType() == typeof(RelatorioUsuarioRequest))
+            {
+                var relatorioUsuarioRequest = (RelatorioUsuarioRequest)relatorioRequest;
+                var usuario = await _context.Usuarios.FindAsync(relatorioUsuarioRequest.UsuarioId);
+                if (usuario == null)
+                {
+                    return BadRequest("Usuário não encontrado");
+                }
+                
+                relatorio.Usuario = usuario;
+            }
+            else if (relatorioRequest.GetType() == typeof(RelatorioDroneRequest))
+            {
+                var relatorioDroneRequest = (RelatorioDroneRequest)relatorioRequest;
+                var drone = await _context.Drones.FindAsync(relatorioDroneRequest.DroneId);
+                if (drone == null)
+                {
+                    return BadRequest("Drone não encontrado");
+                }
+                
+                relatorio.Drone = drone;
+            }
+            else
+            {
+                return BadRequest("Id do usuário e do drone não informados");
+            }
             
             _context.Relatorios.Add(relatorio);
             await _context.SaveChangesAsync();
-
+            
             return CreatedAtAction(nameof(GetRelatorio), new { Id = relatorio.Id }, relatorio);
         }
         
@@ -67,13 +83,15 @@ namespace NaturalDisasterAPI.Controllers
             var relatorios = await _context.Relatorios
                 .Include(r => r.Drone)
                 .Include(r => r.Usuario)
+                .Include(r => r.Cidade)
                 .Select(u => new RelatorioResponse
                 {
                     Id = u.Id,
                     Descricao = u.Descricao,
                     Data = u.Data,
                     DroneModelo = u.Drone.Modelo,
-                    UsuarioNome = u.Usuario.Nome
+                    UsuarioNome = u.Usuario.Nome,
+                    CidadeNome = u.Cidade.Nome,
                 })
                 .ToListAsync();
 
@@ -86,6 +104,7 @@ namespace NaturalDisasterAPI.Controllers
             var relatorio = await _context.Relatorios
                 .Include(r => r.Drone)
                 .Include(r => r.Usuario)
+                .Include(r => r.Cidade)
                 .Where(r => r.Id == id)
                 .Select(u => new RelatorioResponse
                 {
@@ -93,7 +112,8 @@ namespace NaturalDisasterAPI.Controllers
                     Descricao = u.Descricao,
                     Data = u.Data,
                     DroneModelo = u.Drone.Modelo,
-                    UsuarioNome = u.Usuario.Nome
+                    UsuarioNome = u.Usuario.Nome,
+                    CidadeNome = u.Cidade.Nome,
                 })
                 .FirstOrDefaultAsync();
 
@@ -111,14 +131,16 @@ namespace NaturalDisasterAPI.Controllers
             var relatorios = await _context.Relatorios
                 .Include(r => r.Drone)
                 .Include(r => r.Usuario)
-                .Where(r => r.Usuario.Cidade.Equals(cidade) || r.Drone.Cidade.Equals(cidade))
+                .Include(r => r.Cidade)
+                .Where(r => r.Cidade.Nome.Equals(cidade))
                 .Select(u => new RelatorioResponse
                 {
                     Id = u.Id,
                     Descricao = u.Descricao,
                     Data = u.Data,
                     DroneModelo = u.Drone.Modelo,
-                    UsuarioNome = u.Usuario.Nome
+                    UsuarioNome = u.Usuario.Nome,
+                    CidadeNome = u.Cidade.Nome,
                 })
                 .ToListAsync();
             

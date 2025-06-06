@@ -10,6 +10,5 @@ public class Cidade
     public long Id { get; set; }
     public Estado Estado { get; set; }
     public string Nome { get; set; }
-    public List<Drone> Drones { get; set; }
-    public List<Usuario> Usuarios { get; set; }
+    public List<Relatorio> Relatorios { get; set; } = new List<Relatorio>();
 }

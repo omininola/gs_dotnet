@@ -18,7 +18,6 @@ public class UsuarioController : Controller
     public async Task<IActionResult> Index()
     {
         var usuarios = await _context.Usuarios
-            .Include(u => u.Cidade)
             .Include(u => u.Relatorios)
             .ToListAsync();
         return View(usuarios);
@@ -26,14 +25,12 @@ public class UsuarioController : Controller
 
     public async Task<IActionResult> Create()
     {
-        ViewBag.Cidades = await _context.Cidades.ToListAsync(); 
         return View();
     }
     
     public async Task<IActionResult> Edit(long id)
     {
         var usuario = await _context.Usuarios
-            .Include(u => u.Cidade)
             .Where(u => u.Id == id)
             .FirstOrDefaultAsync();
 
@@ -47,17 +44,14 @@ public class UsuarioController : Controller
             Nome = usuario.Nome,
             Email = usuario.Email,
             Senha = usuario.Senha,
-            CidadeId = usuario.Cidade.Id
         };
 
-        ViewBag.Cidades = await _context.Cidades.ToListAsync();
         return View(usuarioRequest);
     }
     
     public async Task<IActionResult> Delete(long id)
     {
         var usuario = await _context.Usuarios
-            .Include(u => u.Cidade)
             .Where(u => u.Id == id)
             .FirstOrDefaultAsync();
 
@@ -79,14 +73,12 @@ public class UsuarioController : Controller
                 Nome = usuarioRequest.Nome,
                 Email = usuarioRequest.Email,
                 Senha = usuarioRequest.Senha,
-                Cidade = await _context.Cidades.FindAsync(usuarioRequest.CidadeId)
             };
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         
-        ViewBag.Cidades = await _context.Cidades.ToListAsync();
         return View(usuarioRequest);
     }
     
@@ -100,7 +92,6 @@ public class UsuarioController : Controller
         }
 
         var usuario = await _context.Usuarios
-            .Include(u => u.Cidade)
             .Where(u => u.Id == id)
             .FirstOrDefaultAsync();
         
@@ -112,7 +103,6 @@ public class UsuarioController : Controller
         usuario.Nome = usuarioRequest.Nome;
         usuario.Email = usuarioRequest.Email;
         usuario.Senha = usuarioRequest.Senha;
-        usuario.Cidade = await _context.Cidades.FindAsync(usuarioRequest.CidadeId);
 
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));

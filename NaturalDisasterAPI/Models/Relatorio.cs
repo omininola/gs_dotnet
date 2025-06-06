@@ -11,6 +11,9 @@ public class Relatorio
     public long Id { get; set; }
     
     [JsonIgnore]
+    public Cidade Cidade { get; set; }
+    
+    [JsonIgnore]
     public Drone? Drone { get; set; }
     
     [JsonIgnore]

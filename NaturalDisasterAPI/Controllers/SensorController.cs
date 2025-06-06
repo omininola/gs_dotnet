@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaturalDisasterAPI.Data;
 using NaturalDisasterAPI.DTO;
+using NaturalDisasterAPI.DTO.SensorDTO;
 using NaturalDisasterAPI.Models;
 
 namespace NaturalDisasterAPI.Controllers
@@ -35,6 +36,9 @@ namespace NaturalDisasterAPI.Controllers
                 Drone = drone
             };
 
+            _context.Sensores.Add(sensor);
+            await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetSensor), new { Id = sensor.Id }, sensor);
         }
 
@@ -46,7 +50,6 @@ namespace NaturalDisasterAPI.Controllers
                 .Select(s => new SensorResponse
                 {
                     Id = s.Id,
-                    Drone = s.Drone,
                     Tipo = s.Tipo,
                     Status = s.Status,
                     Descricao = s.Descricao
@@ -65,7 +68,6 @@ namespace NaturalDisasterAPI.Controllers
                 .Select(s => new SensorResponse
                 {
                     Id = s.Id,
-                    Drone = s.Drone,
                     Tipo = s.Tipo,
                     Status = s.Status,
                     Descricao = s.Descricao

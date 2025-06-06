@@ -9,7 +9,6 @@
     <tr>
         <th>Nome</th>
         <th>Email</th>
-        <th>Cidade</th>
         <th>Relatórios Feitos</th>
         <th class="text-center">Ações</th>
     </tr>
@@ -20,7 +19,6 @@
         <tr>
             <td>@usuario.Nome</td>
             <td>@usuario.Email</td>
-            <td>@usuario.Cidade.Nome</td>
             <td>@usuario.Relatorios.Count</td>
             <td class="d-flex justify-content-around">
                 <a href="@Url.Action("Edit", "Usuario", new { id = usuario.Id })" class="btn btn-secondary">Editar</a>

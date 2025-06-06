@@ -33,13 +33,13 @@ Clone esse repositório com o comando `git clone https://github.com/omininola/gs
 
 1. Entre na pasta do projeto `cd gs_dotnet/NaturalDisasterAPI`
 2. Rode a API `dotnet run`
-3. Entre no link da aplicação pelo seu browser http://localhost:PORT/swagger/index.html
+3. Entre no link da aplicação pelo seu browser http://localhost:5087/swagger/index.html
 
 ### MVC (Somente referente a tabela de usuários)
 
 1. Entre na pasta do projeto `cd gs_dotnet/NaturalDisasterMVC`
 2. Rode o MVC `dotnet run`
-3. Entre no link da aplicação pelo seu browser http://localhost:PORT/
+3. Entre no link da aplicação pelo seu browser http://localhost:5010/
 
 ---
 

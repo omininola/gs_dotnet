@@ -1,8 +1,9 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaturalDisasterAPI.Data;
-using NaturalDisasterAPI.DTO;
+using NaturalDisasterAPI.DTO.DroneDTO;
+using NaturalDisasterAPI.DTO.RelatorioDTO;
+using NaturalDisasterAPI.DTO.SensorDTO;
 using NaturalDisasterAPI.Models;
 
 namespace NaturalDisasterAPI.Controllers
@@ -21,17 +22,10 @@ namespace NaturalDisasterAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<DroneResponse>> PostDrone([FromBody] DroneRequest droneRequest)
         {
-            var cidade = await _context.Cidades.FindAsync(droneRequest.CidadeId);
-            if (cidade == null)
-            {
-                return BadRequest("Cidade não encontrada");
-            }
-
             var drone = new Drone
             {
                 Modelo = droneRequest.Modelo,
                 Status = droneRequest.Status,
-                Cidade = cidade
             };
 
             _context.Drones.Add(drone);
@@ -44,19 +38,25 @@ namespace NaturalDisasterAPI.Controllers
         public async Task<ActionResult<IEnumerable<DroneResponse>>> GetDrones()
         {
             var drones = await _context.Drones
-                .Include(d => d.Cidade)
                 .Include(d => d.Relatorios)
+                .Include(d => d.Sensores)
                 .Select(d => new DroneResponse
                 {
                     Id = d.Id,
                     Modelo = d.Modelo,
                     Status = d.Status,
-                    CidadeNome = d.Cidade.Nome,
                     Relatorios = d.Relatorios.Select(r => new RelatorioResponse
                     {
                         Id = r.Id,
                         Descricao = r.Descricao,
                         Data = r.Data
+                    }).ToList(),
+                    Sensores = d.Sensores.Select(s => new SensorResponse
+                    {
+                        Id = s.Id,
+                        Tipo = s.Tipo,
+                        Status = s.Status,
+                        Descricao = s.Descricao,
                     }).ToList()
                 })
                 .ToListAsync();
@@ -68,20 +68,26 @@ namespace NaturalDisasterAPI.Controllers
         public async Task<ActionResult<DroneResponse>> GetDrone(long id)
         {
             var drone = await _context.Drones
-                .Include(d => d.Cidade)
                 .Include(d => d.Relatorios)
+                .Include(d => d.Sensores)
                 .Where(d => d.Id == id)
                 .Select(d => new DroneResponse
                 {
                     Id = d.Id,
                     Modelo = d.Modelo,
                     Status = d.Status,
-                    CidadeNome = d.Cidade.Nome,
                     Relatorios = d.Relatorios.Select(r => new RelatorioResponse
                     {
                         Id = r.Id,
                         Descricao = r.Descricao,
                         Data = r.Data
+                    }).ToList(),
+                    Sensores = d.Sensores.Select(s => new SensorResponse
+                    {
+                        Id = s.Id,
+                        Tipo = s.Tipo,
+                        Status = s.Status,
+                        Descricao = s.Descricao,
                     }).ToList()
                 })
                 .FirstOrDefaultAsync();

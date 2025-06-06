@@ -11,10 +11,14 @@ public class Relatorio
     public long Id { get; set; }
     
     [JsonIgnore]
+    public Cidade Cidade { get; set; }
+    
+    [JsonIgnore]
     public Drone? Drone { get; set; }
     
     [JsonIgnore]
     public Usuario? Usuario { get; set; }
+    
     public string Descricao { get; set; } = string.Empty;
     public DateTime Data { get; set; }
 }

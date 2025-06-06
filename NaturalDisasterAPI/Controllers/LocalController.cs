@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaturalDisasterAPI.Data;
-using NaturalDisasterAPI.DTO;
+using NaturalDisasterAPI.DTO.CidadeDTO;
+using NaturalDisasterAPI.DTO.EstadoDTO;
+using NaturalDisasterAPI.DTO.PaisDTO;
 using NaturalDisasterAPI.Models;
 
 namespace NaturalDisasterAPI.Controllers
@@ -158,27 +160,11 @@ namespace NaturalDisasterAPI.Controllers
         {
             var cidades = await _context.Cidades
                 .Include(c => c.Estado)
-                .Include(c => c.Drones)
-                .Include(c => c.Usuarios)
                 .Select(c => new CidadeResponse()
                 {
                     Id = c.Id,
                     Nome = c.Nome,
                     Estado = c.Estado.Nome,
-                    Drones = c.Drones.Select(d => new DroneResponse
-                    {
-                        Id = d.Id,
-                        CidadeNome = d.Cidade.Nome,
-                        Modelo = d.Modelo,
-                        Status = d.Status,
-                    }).ToList(),
-                    Usuarios = c.Usuarios.Select(u => new UsuarioResponse
-                    {
-                        Id = u.Id,
-                        CidadeNome = u.Cidade.Nome,
-                        Nome = u.Nome,
-                        Email = u.Email,
-                    }).ToList()
                 })
                 .ToListAsync();
 
@@ -190,28 +176,12 @@ namespace NaturalDisasterAPI.Controllers
         {
             var cidade = await _context.Cidades
                 .Include(c => c.Estado)
-                .Include(c => c.Drones)
-                .Include(c => c.Usuarios)
                 .Where(c => c.Id == id)
                 .Select(c => new CidadeResponse()
                 {
                     Id = c.Id,
                     Nome = c.Nome,
                     Estado = c.Estado.Nome,
-                    Drones = c.Drones.Select(d => new DroneResponse
-                    {
-                        Id = d.Id,
-                        CidadeNome = d.Cidade.Nome,
-                        Modelo = d.Modelo,
-                        Status = d.Status,
-                    }).ToList(),
-                    Usuarios = c.Usuarios.Select(u => new UsuarioResponse
-                    {
-                        Id = u.Id,
-                        CidadeNome = u.Cidade.Nome,
-                        Nome = u.Nome,
-                        Email = u.Email,
-                    }).ToList()
                 })
                 .FirstOrDefaultAsync();
 
