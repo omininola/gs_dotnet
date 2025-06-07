@@ -1,0 +1,2020 @@
+{
+	"info": {
+		"_postman_id": "35f6347a-4a29-419d-80f3-75c64bb6b3c9",
+		"name": "NaturalDisasterAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13683901"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Drone",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Drone/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Drone/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Drone",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Drone/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Drone",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"modelo\": \"<string>\",\n  \"status\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ],\n  \"sensores\": [\n    {\n      \"id\": \"<long>\",\n      \"tipo\": \"<string>\",\n      \"status\": \"<string>\",\n      \"descricao\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"tipo\": \"<string>\",\n      \"status\": \"<string>\",\n      \"descricao\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Drone",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelo\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Drone",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Drone"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"modelo\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Drone",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Drone"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"modelo\": \"<string>\",\n  \"status\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ],\n  \"sensores\": [\n    {\n      \"id\": \"<long>\",\n      \"tipo\": \"<string>\",\n      \"status\": \"<string>\",\n      \"descricao\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"tipo\": \"<string>\",\n      \"status\": \"<string>\",\n      \"descricao\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Drone",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Drone",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Drone"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Drone",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Drone"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"modelo\": \"<string>\",\n    \"status\": \"<string>\",\n    \"relatorios\": [\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      }\n    ],\n    \"sensores\": [\n      {\n        \"id\": \"<long>\",\n        \"tipo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"descricao\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"tipo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"descricao\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"modelo\": \"<string>\",\n    \"status\": \"<string>\",\n    \"relatorios\": [\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      }\n    ],\n    \"sensores\": [\n      {\n        \"id\": \"<long>\",\n        \"tipo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"descricao\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"tipo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"descricao\": \"<string>\"\n      }\n    ]\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Local",
+					"item": [
+						{
+							"name": "pais",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "/api/Local/pais/:id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/pais/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"pais",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Local/pais/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Local",
+																"pais",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<long>\",\n  \"nome\": \"<string>\",\n  \"estados\": [\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"cidades\": [\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"cidades\": [\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "/api/Local/pais",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Local/pais",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Local",
+												"pais"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/pais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"pais"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"nome\": \"<string>\",\n  \"estados\": [\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"cidades\": [\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"cidades\": [\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<long>\",\n          \"nome\": \"<string>\",\n          \"relatorios\": [\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<long>\",\n              \"descricao\": \"<string>\",\n              \"data\": \"<dateTime>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Local/pais",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Local/pais",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Local",
+												"pais"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/pais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"pais"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"nome\": \"<string>\",\n    \"estados\": [\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"cidades\": [\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"cidades\": [\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"nome\": \"<string>\",\n    \"estados\": [\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"cidades\": [\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"cidades\": [\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<long>\",\n            \"nome\": \"<string>\",\n            \"relatorios\": [\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              },\n              {\n                \"id\": \"<long>\",\n                \"descricao\": \"<string>\",\n                \"data\": \"<dateTime>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "estado",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "/api/Local/estado/:id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/estado/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"estado",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Local/estado/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Local",
+																"estado",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<long>\",\n  \"paisNome\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"cidades\": [\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"relatorios\": [\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"relatorios\": [\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        }\n      ]\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "/api/Local/estado",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"paisId\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Local/estado",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Local",
+												"estado"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"<string>\",\n  \"paisId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/estado",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"estado"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"paisNome\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"cidades\": [\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"relatorios\": [\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<long>\",\n      \"nome\": \"<string>\",\n      \"relatorios\": [\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"descricao\": \"<string>\",\n          \"data\": \"<dateTime>\"\n        }\n      ]\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Local/estado",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Local/estado",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Local",
+												"estado"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/estado",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"estado"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"paisNome\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cidades\": [\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"relatorios\": [\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"relatorios\": [\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"paisNome\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cidades\": [\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"relatorios\": [\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"nome\": \"<string>\",\n        \"relatorios\": [\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"descricao\": \"<string>\",\n            \"data\": \"<dateTime>\"\n          }\n        ]\n      }\n    ]\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "cidade",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "/api/Local/cidade/:id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/cidade/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"cidade",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Local/cidade/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Local",
+																"cidade",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<long>\",\n  \"estado\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "/api/Local/cidade",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"estadoId\": \"<long>\",\n  \"nome\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Local/cidade",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Local",
+												"cidade"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"estadoId\": \"<long>\",\n  \"nome\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/cidade",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"cidade"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"estado\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Local/cidade",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Local/cidade",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Local",
+												"cidade"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Local/cidade",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Local",
+														"cidade"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"estado\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"relatorios\": [\n      {\n        \"id\": \"<long>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"estado\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"relatorios\": [\n      {\n        \"id\": \"<long>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Relatorio",
+					"item": [
+						{
+							"name": "usuario",
+							"item": [
+								{
+									"name": "/api/Relatorio/usuario",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"cidadeId\": \"<long>\",\n  \"descricao\": \"<string>\",\n  \"usuarioId\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Relatorio/usuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Relatorio",
+												"usuario"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"cidadeId\": \"<long>\",\n  \"descricao\": \"<string>\",\n  \"usuarioId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Relatorio/usuario",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Relatorio",
+														"usuario"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"cidadeNome\": \"<string>\",\n  \"droneModelo\": \"<string>\",\n  \"usuarioNome\": \"<string>\",\n  \"descricao\": \"<string>\",\n  \"data\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "drone",
+							"item": [
+								{
+									"name": "/api/Relatorio/drone",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"cidadeId\": \"<long>\",\n  \"descricao\": \"<string>\",\n  \"droneId\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Relatorio/drone",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Relatorio",
+												"drone"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"cidadeId\": \"<long>\",\n  \"descricao\": \"<string>\",\n  \"droneId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Relatorio/drone",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Relatorio",
+														"drone"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"cidadeNome\": \"<string>\",\n  \"droneModelo\": \"<string>\",\n  \"usuarioNome\": \"<string>\",\n  \"descricao\": \"<string>\",\n  \"data\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Relatorio/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Relatorio/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Relatorio",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Relatorio/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Relatorio",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"cidadeNome\": \"<string>\",\n  \"droneModelo\": \"<string>\",\n  \"usuarioNome\": \"<string>\",\n  \"descricao\": \"<string>\",\n  \"data\": \"<dateTime>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Relatorio/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Relatorio/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Relatorio",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Relatorio/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Relatorio",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "cidade",
+							"item": [
+								{
+									"name": "{cidade}",
+									"item": [
+										{
+											"name": "/api/Relatorio/cidade/:cidade",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Relatorio/cidade/:cidade",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Relatorio",
+														"cidade",
+														":cidade"
+													],
+													"variable": [
+														{
+															"key": "cidade",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Relatorio/cidade/:cidade",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Relatorio",
+																"cidade",
+																":cidade"
+															],
+															"variable": [
+																{
+																	"key": "cidade"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": \"<long>\",\n    \"cidadeNome\": \"<string>\",\n    \"droneModelo\": \"<string>\",\n    \"usuarioNome\": \"<string>\",\n    \"descricao\": \"<string>\",\n    \"data\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"cidadeNome\": \"<string>\",\n    \"droneModelo\": \"<string>\",\n    \"usuarioNome\": \"<string>\",\n    \"descricao\": \"<string>\",\n    \"data\": \"<dateTime>\"\n  }\n]"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Relatorio",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Relatorio",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Relatorio"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Relatorio",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Relatorio"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"cidadeNome\": \"<string>\",\n    \"droneModelo\": \"<string>\",\n    \"usuarioNome\": \"<string>\",\n    \"descricao\": \"<string>\",\n    \"data\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"cidadeNome\": \"<string>\",\n    \"droneModelo\": \"<string>\",\n    \"usuarioNome\": \"<string>\",\n    \"descricao\": \"<string>\",\n    \"data\": \"<dateTime>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Sensor",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Sensor/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Sensor/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Sensor",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Sensor/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Sensor",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"tipo\": \"<string>\",\n  \"status\": \"<string>\",\n  \"descricao\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Sensor",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"droneId\": \"<long>\",\n  \"status\": \"<string>\",\n  \"tipo\": \"<string>\",\n  \"descricao\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Sensor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Sensor"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"droneId\": \"<long>\",\n  \"status\": \"<string>\",\n  \"tipo\": \"<string>\",\n  \"descricao\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Sensor",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Sensor"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"tipo\": \"<string>\",\n  \"status\": \"<string>\",\n  \"descricao\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Sensor",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Sensor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Sensor"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Sensor",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Sensor"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"tipo\": \"<string>\",\n    \"status\": \"<string>\",\n    \"descricao\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"tipo\": \"<string>\",\n    \"status\": \"<string>\",\n    \"descricao\": \"<string>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Usuario/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"nome\": \"<string>\",\n  \"email\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Usuario/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"nome\": \"<string>\",\n  \"senha\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\",\n  \"nome\": \"<string>\",\n  \"senha\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"nome\": \"<string>\",\n  \"email\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Usuario/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Usuario",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"nome\": \"<string>\",\n  \"senha\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Usuario"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"nome\": \"<string>\",\n  \"senha\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Usuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Usuario"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"nome\": \"<string>\",\n  \"email\": \"<string>\",\n  \"relatorios\": [\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"cidadeNome\": \"<string>\",\n      \"droneModelo\": \"<string>\",\n      \"usuarioNome\": \"<string>\",\n      \"descricao\": \"<string>\",\n      \"data\": \"<dateTime>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Usuario",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Usuario"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Usuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Usuario"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"nome\": \"<string>\",\n    \"email\": \"<string>\",\n    \"relatorios\": [\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"nome\": \"<string>\",\n    \"email\": \"<string>\",\n    \"relatorios\": [\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"cidadeNome\": \"<string>\",\n        \"droneModelo\": \"<string>\",\n        \"usuarioNome\": \"<string>\",\n        \"descricao\": \"<string>\",\n        \"data\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

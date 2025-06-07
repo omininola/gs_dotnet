@@ -5,8 +5,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+var connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
+if (connectionString == null) throw new Exception("Connection string not found");
+
+connectionString = connectionString.Replace("${DB_PASSWORD}", "TavinLindo");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseMySQL(connectionString));
 
 var app = builder.Build();
 

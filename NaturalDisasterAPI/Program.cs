@@ -10,8 +10,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
-
 if (connectionString == null) throw new Exception("Connection string not found");
+
+var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+connectionString = connectionString.Replace("${DB_PASSWORD}", dbPassword);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL(connectionString));
