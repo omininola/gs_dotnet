@@ -13,7 +13,7 @@
 
 - Repositório: https://github.com/omininola/gs_dotnet
 - Vídeo demonstrativo: https://youtu.be/6VcB2TAVKsY
-- Vídeo Pitch: 
+- Vídeo Pitch: https://youtu.be/Sd4V2oEn3bM
 
 ---
 
