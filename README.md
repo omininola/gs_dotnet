@@ -27,7 +27,8 @@ Além disso, também temos drones equipados com sensores e camêras capazes de i
 
 ## Diagramas
 
-
+![Modelo Lógico](https://github.com/user-attachments/assets/67150228-fff8-4ac2-81ca-146e4b8b6af1)
+![Modelo Relacional](https://github.com/user-attachments/assets/c9244ca6-bbe2-4baf-83ec-360378070f86)
 
 ---
 
